@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Wysyłanie statystyk</title>
+    <link rel="icon" type="image/x-icon" href="/static/fs_ikonka.ico">
+    <link rel="stylesheet" type="text/css" href="mainstyle.css">
+    <script src="core.js" type="application/javascript"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body onload="onLoad()">
+<main>
+  <form onsubmit="onStatsSend(event)" class="mainForm" id="statsform">
+      <h1 id="botname"> Ładowanie... </h1>
+      <h2 id="helptext" class="normalText"> Wklej tutaj swoje statystyki skopiowane ze skanera </h2>
+      <span id="submitResult">
+          Tutaj będzie wiadomość po wysłaniu statystyk
+      </span>
+      <textarea onclick="clearInputs()" id="statsArea" name="stats" form="statsform"> </textarea>
+      <input id="submitStatsButton" class="submitButton" type="submit" value="Wyślij statystyki">
+  </form>
+</main>
+</body>
+</html>
