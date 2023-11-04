@@ -1,5 +1,7 @@
 const urlSearchParams = new URLSearchParams(window.location.search);
 const eventId = Object.fromEntries(urlSearchParams.entries()).eventId;
+const apiUrl = "https://ladyisabell3-1-z4708130.deta.app"
+// const apiUrl = "http://127.0.0.1:5000"
 
 function onLoad(){
     const header = document.getElementById("botname")
@@ -16,7 +18,7 @@ function onLoad(){
         return;
     }
 
-    fetch("https://ladyisabell3-1-z4708130.deta.app/submitter/getBotInfo/".concat(eventId))
+    fetch(apiUrl.concat("/submitter/getBotInfo/").concat(eventId))
         .then(res => res.json())
         .then(response => {
             header.innerText = "FS organizator - ".concat(response["data"])
@@ -27,12 +29,15 @@ function onLoad(){
 function onStatsSend(event){
     event.preventDefault();
     let submitButton = document.getElementById("submitStatsButton");
+    let statsArea = document.getElementById("statsArea");
+
     submitButton.disabled = true;
+    let rawData = statsArea.value.replace(/\t/g, ' ');
     const dataToSend = JSON.stringify(
-        {"agentId": 170, "botId": eventId, "data": statsArea.value.split("\n")}
+        {"agentId": 180, "botId": eventId, "data": rawData.split("\n")}
     );
 
-    fetch("https://ladyisabell3-1-z4708130.deta.app/submitter/submitStats", {
+    fetch(apiUrl.concat("/submitter/submitStats"), {
         method: "post",
         headers: { "Content-Type": "application/json" },
         body: dataToSend
