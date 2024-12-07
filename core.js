@@ -1,6 +1,7 @@
 const urlSearchParams = new URLSearchParams(window.location.search);
 const eventId = Object.fromEntries(urlSearchParams.entries()).eventId;
-const apiUrl = "https://ladyisabell3-1-z4708130.deta.app"
+const apiUrl = "https://ladyisabellazure-fxfvfzf4dmdmchcp.polandcentral-01.azurewebsites.net"
+// const apiUrl = "https://ladyisabell3-1-z4708130.deta.app"
 // const apiUrl = "http://127.0.0.1:5000"
 
 function onLoad(){
